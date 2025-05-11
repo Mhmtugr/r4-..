@@ -93,10 +93,9 @@ class ErpService {
       if (!token) {
         throw new Error('Canias ERP bağlantısı için yetkilendirme token\'ı bulunamadı');
       }
-      
-      // WebSocket URL'i oluştur
+        // WebSocket URL'i oluştur
       const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const wsUrl = `${wsProtocol}//${appConfig.ERP_API_HOST || window.location.host}/api/erp/ws`;
+      const wsUrl = appConfig.erp?.connection?.wsUrl || `${wsProtocol}//${window.location.host}/api/erp/ws`;
       
       // Bağlantıyı kapat (eğer zaten varsa)
       if (this.socket && this.socket.readyState !== WebSocket.CLOSED) {

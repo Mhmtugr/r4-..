@@ -27,8 +27,8 @@ const logEntries = [];
 
 // Logger yapılandırması (varsayılanlar)
 let currentConfig = {
-  level: import.meta.env.VITE_LOG_LEVEL || appConfig.log?.level || (import.meta.env.PROD ? 'WARN' : 'DEBUG'),
-  enableConsole: appConfig.log?.enableConsole ?? true,
+  level: import.meta.env.VITE_LOG_LEVEL || appConfig.system?.logging?.level || (import.meta.env.PROD ? 'WARN' : 'DEBUG'),
+  enableConsole: appConfig.system?.logging?.enableConsole ?? true,
   enableMemory: appConfig.log?.enableMemory ?? !import.meta.env.PROD, // Geliştirmede hafızada tut
   maxMemoryEntries: appConfig.log?.maxMemoryEntries || 500,
   enableRemote: appConfig.log?.remote?.enabled || false,

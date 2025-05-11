@@ -9,8 +9,10 @@ import appConfig from '@/config'; // Import config instead of using window
 class ApiService {
   constructor() {
     // Config dosyasından veya ortam değişkenlerinden al
-    this.baseUrl = appConfig.apiUrl || import.meta.env.VITE_API_URL || '/api'; // Use import.meta.env for Vite
-    this.mockMode = appConfig.useDemoMode ?? (import.meta.env.MODE === 'development'); // Default to true in dev if not specified
+    this.baseUrl = appConfig.api?.baseUrl || import.meta.env.VITE_API_URL || '/api'; // Use import.meta.env for Vite
+    this.mockMode = appConfig.api?.useMockData ?? (import.meta.env.MODE === 'development'); // Default to true in dev if not specified
+    this.timeout = appConfig.api?.timeout || 30000;
+    this.retryAttempts = appConfig.api?.retryAttempts || 3;
     
     console.log('API Servisi başlatılıyor', { baseUrl: this.baseUrl, mockMode: this.mockMode });
   }

@@ -2,12 +2,27 @@
  * METS - Service Worker Yardımcı İşlevleri
  * PWA destek işlevselliği için kullanılır
  */
+ 
+import appConfig from '@/config';
+
+// PWA ayarlarını al 
+const pwaConfig = appConfig.system?.pwa || {
+  enabled: true,
+  workboxOptions: { skipWaiting: true, clientsClaim: true },
+  updateCheckInterval: 60 * 60 * 1000, // 1 saat
+};
 
 /**
  * Service Worker'ı kaydet
  * @returns {Promise<ServiceWorkerRegistration|null>}
  */
 export function registerServiceWorker() {
+  // PWA devre dışı bırakıldıysa
+  if (!pwaConfig.enabled) {
+    console.log('PWA devre dışı bırakıldı, Service Worker kaydedilmiyor.');
+    return Promise.resolve(null);
+  }
+  
   if ('serviceWorker' in navigator) {
     return navigator.serviceWorker.register('/service-worker.js')
       .then(registration => {

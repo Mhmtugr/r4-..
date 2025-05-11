@@ -21,7 +21,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { aiService } from '@/services/ai-service'
 import { apiService } from '@/services/api-service'
 import { useEventBus } from '@/utils/event-bus'
-import { registerComponents } from '@/utils/component-registrar'
 import { registerServiceWorker, checkForUpdates, listenToNetworkChanges } from '@/utils/service-worker'
 
 // Service Worker Kaydı ve PWA Özellikleri
@@ -62,9 +61,6 @@ app.use(pinia)
 
 // Router kullan
 app.use(router)
-
-// Bileşen kaydedici
-registerComponents(app)
 
 // Global özellikleri ayarla
 app.config.globalProperties.$eventBus = useEventBus()

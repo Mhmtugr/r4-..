@@ -1,19 +1,19 @@
 import { ref, reactive, computed } from 'vue';
 import { useStorage } from '@vueuse/core';
 import axios from 'axios';
-import config from '@/config';
+import appConfig from '@/config';
 
 // API Anahtarı ve URL Yapılandırması
 const API_SERVICE_CONFIG = {
   gemini: {
-    apiKey: config.ai?.geminiApiKey || import.meta.env.VITE_GEMINI_API_KEY,
-    apiUrl: config.ai?.geminiApiUrl || 'https://generativelanguage.googleapis.com/v1beta/models',
-    modelName: config.ai?.modelName || 'gemini-1.5-pro', // Varsayılan model
+    apiKey: appConfig.ai?.gemini?.apiKey || import.meta.env.VITE_GEMINI_API_KEY,
+    apiUrl: appConfig.ai?.gemini?.apiUrl || 'https://generativelanguage.googleapis.com/v1beta/models',
+    modelName: appConfig.ai?.gemini?.modelName || 'gemini-1.5-pro', // Varsayılan model
   },
   openRouter: {
-    apiKey: config.ai?.openRouterApiKey || import.meta.env.VITE_OPENROUTER_API_KEY,
-    apiUrl: config.ai?.openRouterApiUrl || 'https://openrouter.ai/api/v1',
-    defaultModels: config.ai?.openRouterDefaultModels || {
+    apiKey: appConfig.ai?.openRouter?.apiKey || import.meta.env.VITE_OPENROUTER_API_KEY,
+    apiUrl: appConfig.ai?.openRouter?.apiUrl || 'https://openrouter.ai/api/v1',
+    defaultModels: appConfig.ai?.openRouter?.defaultModels || {
       chat: 'openai/gpt-3.5-turbo',
       instruct: 'google/gemini-flash-1.5', // Örnek bir instruct model
     },

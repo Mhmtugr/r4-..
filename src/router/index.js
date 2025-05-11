@@ -8,7 +8,7 @@ import { useAuthStore } from '@/store/auth';
 // Views
 const LoginView = () => import('@/modules/auth/views/LoginView.vue');
 const Dashboard = () => import('@/modules/dashboard/views/DashboardHome.vue');
-const OrderListView = () => import('@/modules/orders/OrderList.vue');
+const OrderListView = () => import('@/modules/orders/views/OrderListView.vue');
 const OrderDetailView = () => import('@/modules/orders/views/OrderDetailView.vue');
 const OrderCreationView = () => import('@/modules/orders/views/OrderCreationView.vue');
 const ProductionOverview = () => import('@/modules/production/views/ProductionOverview.vue');
