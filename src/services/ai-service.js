@@ -17,8 +17,8 @@ const API_SERVICE_CONFIG = {
       chat: 'openai/gpt-3.5-turbo',
       instruct: 'google/gemini-flash-1.5', // Örnek bir instruct model
     },
-    siteUrl: config.ai?.openRouterSiteUrl, // siteUrl ve appName referans için eklendi
-    appName: config.ai?.openRouterAppName,
+    siteUrl: appConfig.ai?.openRouter?.siteUrl, // siteUrl ve appName referans için eklendi
+    appName: appConfig.ai?.openRouter?.appName,
   },
   // Diğer AI servisleri buraya eklenebilir (örn: local LLM)
 };
