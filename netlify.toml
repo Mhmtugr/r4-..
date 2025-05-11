@@ -9,6 +9,8 @@
   # Dashboard dosyası hatasını önlemek için ek çevre değişkenleri
   VITE_USE_DIRECT_IMPORTS = "true"
   VITE_DISABLE_PWA = "false"
+  # SASS legacy API uyarılarını bastır
+  SASS_LEGACY_WARNING = "false"
 
 # Service Worker'ın doğru şekilde sunulmasını sağla
 [[redirects]]
