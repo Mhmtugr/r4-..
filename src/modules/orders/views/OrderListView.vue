@@ -238,12 +238,16 @@ const editOrder = (order) => {
   }
 }
 </style>
-<template>
-  <div class="order-list-container">
-    <div class="order-list-header">
-      <h1>Sipariş Yönetimi</h1>
-      <div class="order-list-actions">
-        <button class="btn btn-primary" @click="createNewOrder">
+<!-- 
+Bu ikinci template, Vue bileşeninde birden fazla template olamayacağı için 
+hata veriyordu. İçeriği yorum olarak tutuyoruz, gerekirse tek template'e entegre edilebilir.
+
+<div class="order-list-container">
+  <div class="order-list-header">
+    <h1>Sipariş Yönetimi</h1>
+    <div class="order-list-actions">
+      <button class="btn btn-primary" @click="createNewOrder">
+-->
           <i class="fas fa-plus"></i> Yeni Sipariş
         </button>
         <button class="btn btn-outline-secondary" @click="exportOrders">

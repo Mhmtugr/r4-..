@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
-import * as sass from 'sass';
 
 // Mutlak dosya yolunu belirle
 const resolveAbsolutePath = (p) => path.resolve(__dirname, p);
@@ -100,6 +99,13 @@ export default defineConfig({
     target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
     // Build hatalarını daha net görüntülemek için
     reportCompressedSize: true
+  },  css: {
+    preprocessorOptions: {
+      scss: {
+        // Modern SASS API kullanımı için
+        additionalData: '@use "@/styles/base/_variables.scss" as *;'
+      }
+    }
   },
   resolve: {
     alias: {
