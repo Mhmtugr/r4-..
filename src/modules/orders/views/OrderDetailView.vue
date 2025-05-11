@@ -348,57 +348,7 @@ onMounted(() => {
 }
 </style>
 
-<template>
-  <div class="order-detail-page">
-    <!-- Yükleniyor göstergesi -->
-    <div v-if="isLoading" class="py-5 text-center">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Yükleniyor...</span>
-      </div>
-      <p class="mt-2">Sipariş bilgileri yükleniyor...</p>
-    </div>
-
-    <div v-else>
-      <!-- Üst bilgi -->
-      <div class="d-flex justify-content-between align-items-start mb-4">
-        <div>
-          <button @click="goBack" class="btn btn-sm btn-outline-secondary mb-2">
-            <i class="bi bi-arrow-left me-1"></i> Geri Dön
-          </button>
-          <h1 class="mb-1">
-            {{ orderNo }} 
-            <span v-if="isDelayed" class="badge bg-danger ms-2">Gecikiyor</span>
-          </h1>
-          <p class="text-muted">{{ customerName }}</p>
-        </div>
-
-        <div class="d-flex">
-          <div class="dropdown me-2">
-            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="orderActionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-gear me-1"></i> İşlemler
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="orderActionsDropdown">
-              <li><a class="dropdown-item" href="#" @click.prevent="updateOrderStatus('in_progress')"><i class="bi bi-play-fill text-primary me-1"></i> Üretime Başla</a></li>
-              <li><a class="dropdown-item" href="#" @click.prevent="updateOrderStatus('completed')"><i class="bi bi-check-circle text-success me-1"></i> Tamamlandı Olarak İşaretle</a></li>
-              <li><a class="dropdown-item" href="#" @click.prevent="updateOrderStatus('delayed')"><i class="bi bi-exclamation-triangle text-warning me-1"></i> Gecikme Bildir</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-printer me-1"></i> Yazdır</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel me-1"></i> Excel'e Aktar</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-1"></i> Siparişi Sil</a></li>
-            </ul>
-          </div>
-
-          <button 
-            class="btn btn-primary" 
-            @click="performAIAnalysis"
-            :disabled="isAnalyzing"
-          >
-            <i class="bi" :class="isAnalyzing ? 'bi-hourglass' : 'bi-robot'"></i>
-            <span v-if="isAnalyzing">AI Analizi Yapılıyor...</span>
-            <span v-else>AI Analizi</span>
-          </button>
-        </div>
+<!-- Second template element removed (was duplicate) -->
       </div>
 
       <!-- Sipariş durumu -->

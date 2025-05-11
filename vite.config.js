@@ -152,6 +152,8 @@ export default defineConfig({
         sassOptions: {
           outputStyle: 'compressed',
           charset: false,
+          // Dart Sass 2.0.0'da kullanımdan kaldırılan JavaScript API yerine modern API kullanımı
+          api: 'modern',
           // Uyarıları bastır ve hata mesajları gösterme
           quietDeps: true,
           quiet: true,
