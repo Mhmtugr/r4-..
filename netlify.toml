@@ -1,7 +1,7 @@
 # Netlify yapılandırmaları - MehmetEndustriyelTakip
 [build]
   publish = "dist"
-  command = "export NODE_OPTIONS=--max_old_space_size=4096 && npm run build"
+  command = "chmod +x ./build.sh && ./build.sh"
   
 [build.environment]
   NODE_VERSION = "18"
@@ -10,7 +10,9 @@
   VITE_USE_DIRECT_IMPORTS = "true"
   VITE_DISABLE_PWA = "false"
   # SASS legacy API uyarılarını bastır
-  SASS_LEGACY_WARNING = "false"
+  SASS_BINARY_NAME = "linux-x64-93"
+  # Uyarıları hata olarak değerlendirmeyi engelle
+  CI_WARNINGS_AS_ERRORS = "false"
 
 # Service Worker'ın doğru şekilde sunulmasını sağla
 [[redirects]]

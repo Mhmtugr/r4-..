@@ -6,11 +6,10 @@
   "type": "module",
   "engines": {
     "node": ">=18.0.0"
-  },
-  "scripts": {
+  },  "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
+    "build": "SASS_NO_DEPRECATION_WARNINGS=true vite build --emptyOutDir",
     "preview": "vite preview",
     "lint": "eslint src",
     "format": "prettier --write src",

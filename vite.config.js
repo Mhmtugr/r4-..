@@ -149,24 +149,27 @@ export default defineConfig({
       scss: {
         // Modern SASS API kullanımı için
         additionalData: '@use "@/styles/base/_variables.scss" as *;',
-        sassOptions: {
-          outputStyle: 'compressed',
-          charset: false,
-          // Dart Sass 2.0.0'da kullanımdan kaldırılan JavaScript API yerine modern API kullanımı
-          api: 'modern',
-          // Uyarıları bastır ve hata mesajları gösterme
-          quietDeps: true,
-          quiet: true,
-          // Uyarıları hataya dönüştürmeyi engelleme
-          strict: false,
-          // İçe aktarma çözümlemesini iyileştirme
-          loadPaths: [
-            resolveAbsolutePath('src/styles'),
-            resolveAbsolutePath('src'),
-            resolveAbsolutePath('node_modules')
-          ]
-        }
       }
+    },
+    // Sass compiler options directly at the CSS level
+    sassOptions: {
+      outputStyle: 'compressed',
+      charset: false,
+      logger: {
+        warn: () => {} // Suppress all warnings
+      },
+      // Dart Sass 2.0.0'da kullanımdan kaldırılan JavaScript API yerine modern API kullanımı
+      api: 'modern',
+      quietDeps: true,
+      quiet: true,
+      // Uyarıları hataya dönüştürmeyi engelleme
+      strict: false,
+      // İçe aktarma çözümlemesini iyileştirme
+      includePaths: [
+        resolveAbsolutePath('src/styles'),
+        resolveAbsolutePath('src'),
+        resolveAbsolutePath('node_modules')
+      ]
     }
   },
   esbuild: {
